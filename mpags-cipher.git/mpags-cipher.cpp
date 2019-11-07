@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   // Convert the command-line arguments into a more easily usable form
   const std::vector<std::string> cmdLineArgs {argv, argv+argc};
 
-ProgramSettings cmd_settings {false, false, "","","", CipherMode::Encrypt};
+ProgramSettings cmd_settings {false, false, "","","0", CipherMode::Encrypt};
 
 /*
   // Options that might be set by the command-line arguments

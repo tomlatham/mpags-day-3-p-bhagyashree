@@ -12,19 +12,23 @@ CaesarCipher::CaesarCipher(const size_t& key): key_{key}
 CaesarCipher::CaesarCipher(const std::string& key): key_{0}
 {
 
+  if ( key.empty() ) {
+    return;
+  }
+
   for (const auto& element: key)
     {
       if (! std::isdigit(element))
          {
-            std::cout << " Entered String cannot be converted into integer ";
+            std::cerr << "[error] problem converting Caesar cipher key, provided string cannot be converted into integer, will default to " << key_ << std::endl;
+            return;
          }
     }
   key_ = std::stoul(key);
-
 }
 
 
-std::string CaesarCipher::applyCipher(const std::string& inputText, const CipherMode cipher_mode) 
+std::string CaesarCipher::applyCipher(const std::string& inputText, const CipherMode cipher_mode) const
 {
 
   std::string outputText {};
